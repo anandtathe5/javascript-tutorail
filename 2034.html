@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark and Light Mode Toggle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 1000px; /* Increased the box length */
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        h1 {
+            text-align: center;
+            color: #007BFF;
+            transition: color 0.3s;
+        }
+        h2 {
+            color: #0056b3;
+            transition: color 0.3s;
+        }
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        input, p, ul, code {
+            margin-top: 10px;
+            display: block;
+        }
+        code {
+            color: #0000FF; /* Blue text for code */
+            background-color: #f9f9f9; /* Light background for code blocks */
+            padding: 10px;
+            border-radius: 4px;
+            max-width: 100%;
+            overflow-x: auto; /* Horizontal scroll if needed */
+            white-space: pre-wrap; /* Preserve whitespace and wrap code */
+            transition: background-color 0.3s, color 0.3s;
+        }
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #1e1e1e;
+            color: #cfcfcf;
+        }
+        .container.dark-mode {
+            background-color: #2c2c2c;
+            color: #cfcfcf;
+        }
+        h1.dark-mode {
+            color: #82aaff;
+        }
+        h2.dark-mode {
+            color: #6699cc;
+        }
+        button.dark-mode {
+            background-color: #82aaff;
+        }
+        button.dark-mode:hover {
+            background-color: #6699cc;
+        }
+        code.dark-mode {
+            color: #add8e6; /* Light blue text for code */
+            background-color: #333; /* Dark background for code blocks */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+          <h1>JavaScript Topics Tutorial</h1>
+        <button id="modeToggle">Switch to Dark Mode</button>
+        <p>This is a sample paragraph to demonstrate the light and dark mode toggle functionality.</p>
+        <code>const example = 'This is a code block';</code>
+    </div>
+
+    <script>
+        const modeToggle = document.getElementById('modeToggle');
+        modeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            document.querySelector('.container').classList.toggle('dark-mode');
+            document.querySelector('h1').classList.toggle('dark-mode');
+            document.querySelector('h2')?.classList.toggle('dark-mode');
+            document.querySelectorAll('code').forEach(el => el.classList.toggle('dark-mode'));
+
+            if (document.body.classList.contains('dark-mode')) {
+                modeToggle.textContent = 'Switch to Light Mode';
+            } else {
+                modeToggle.textContent = 'Switch to Dark Mode';
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+</head>
+<body>
+    <h1>JavaScript Topics Tutorial</h1>
+
+    <!-- Functions -->
+    <div class="container" id="functions">
+        <h2>1. Functions</h2>
+        <p>JavaScript functions are blocks of code designed to perform a particular task. They are executed when something invokes them.</p>
+        <button onclick="displayMessage()">Click Me</button>
+        <p id="message"></p>
+        <code>
+            <pre>
+                function displayMessage() {
+                    document.getElementById('message').innerText = "Hello, this is a JavaScript function!";
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Strings I -->
+    <div class="container" id="stringsI">
+        <h2>2. Strings I</h2>
+        <p>Strings in JavaScript are used for storing and manipulating text.</p>
+        <input type="text" id="nameInput" placeholder="Your Name">
+        <button onclick="greet()">Greet Me</button>
+        <p id="greeting"></p>
+        <code>
+            <pre>
+                function greet() {
+                    const name = document.getElementById('nameInput').value;
+                    document.getElementById('greeting').innerText = `Hello, ${name}! Welcome to JavaScript Strings.`;
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Numbers -->
+    <div class="container" id="numbers">
+        <h2>3. Numbers</h2>
+        <p>JavaScript numbers can be written with or without decimals. Click the button to see an example of basic arithmetic operations:</p>
+        <button onclick="showNumbers()">Show Numbers</button>
+        <p id="numberResult"></p>
+        <code>
+            <pre>
+                function showNumbers() {
+                    const num1 = 5;
+                    const num2 = 10;
+                    const sum = num1 + num2;
+                    document.getElementById('numberResult').innerText = `5 + 10 = ${sum}`;
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Variables -->
+    <div class="container" id="variables">
+        <h2>4. Variables</h2>
+        <p>JavaScript variables are containers for storing data values. Click the button to see how variables are declared and used:</p>
+        <button onclick="showVariables()">Show Variables</button>
+        <p id="variableResult"></p>
+        <code>
+            <pre>
+                function showVariables() {
+                    var name = "Alice";
+                    let age = 25;
+                    const job = "Developer";
+                    document.getElementById('variableResult').innerText = `Name: ${name}, Age: ${age}, Job: ${job}`;
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Conditions -->
+    <div class="container" id="conditions">
+        <h2>5. Conditions</h2>
+        <p>JavaScript conditional statements are used to perform different actions based on different conditions.</p>
+        <button onclick="checkAge()">Check Age</button>
+        <p id="ageCheck"></p>
+        <code>
+            <pre>
+                function checkAge() {
+                    let age = prompt("Enter your age:");
+                    if (age >= 18) {
+                        document.getElementById('ageCheck').innerText = "You are an adult.";
+                    } else {
+                        document.getElementById('ageCheck').innerText = "You are a minor.";
+                    }
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Arrays I -->
+    <div class="container" id="arraysI">
+        <h2>6. Arrays I</h2>
+        <p>Arrays in JavaScript are used to store multiple values in a single variable.</p>
+        <button onclick="displayArray()">Show Fruits</button>
+        <ul id="fruitList"></ul>
+        <code>
+            <pre>
+                function displayArray() {
+                    const fruits = ["Apple", "Banana", "Cherry", "Date", "Elderberry"];
+                    const list = document.getElementById('fruitList');
+                    list.innerHTML = '';
+                    fruits.forEach(fruit => {
+                        const li = document.createElement('li');
+                        li.innerText = fruit;
+                        list.appendChild(li);
+                    });
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Arrays II & Callbacks -->
+    <div class="container" id="arraysII">
+        <h2>7. Arrays II & Callbacks</h2>
+        <p>Callbacks are functions passed as arguments to other functions.</p>
+        <button onclick="sortArray()">Sort Array</button>
+        <ul id="sortedList"></ul>
+        <code>
+            <pre>
+                function sortArray() {
+                    const numbers = [4, 2, 9, 1, 5, 6];
+                    numbers.sort((a, b) => a - b);
+                    const list = document.getElementById('sortedList');
+                    list.innerHTML = '';
+                    numbers.forEach(number => {
+                        const li = document.createElement('li');
+                        li.innerText = number;
+                        list.appendChild(li);
+                    });
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Objects I -->
+    <div class="container" id="objectsI">
+        <h2>8. Objects I</h2>
+        <p>Objects in JavaScript are collections of key/value pairs. Each key is a string (also called a property), and each value can be any data type.</p>
+        <button onclick="showPerson()">Show Person</button>
+        <p id="person"></p>
+        <code>
+            <pre>
+                function showPerson() {
+                    const person = {
+                        firstName: "John",
+                        lastName: "Doe",
+                        age: 30,
+                        job: "Developer"
+                    };
+                    document.getElementById('person').innerText = `Name: ${person.firstName} ${person.lastName}, Age: ${person.age}, Job: ${person.job}`;
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Arrow Functions -->
+    <div class="container" id="arrow-functions">
+        <h2>9. Arrow Functions</h2>
+        <p>Arrow functions provide a shorter syntax for writing functions in JavaScript.</p>
+        <button onclick="showArrowFunction()">Show Arrow Function</button>
+        <p id="arrowFunction"></p>
+        <code>
+            <pre>
+                const showArrowFunction = () => {
+                    document.getElementById('arrowFunction').innerText = "This is an arrow function!";
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Implicit Return -->
+    <div class="container" id="implicit-return">
+        <h2>10. Implicit Return</h2>
+        <p>Arrow functions can return values implicitly without using the return keyword.</p>
+        <button onclick="showImplicitReturn()">Show Implicit Return</button>
+        <p id="implicitReturn"></p>
+        <code>
+            <pre>
+                const showImplicitReturn = () => document.getElementById('implicitReturn').innerText = "This is an implicit return!";
+            </pre>
+        </code>
+    </div>
+
+    <!-- More sections can be added following the same pattern -->
+
+    <!-- Add your JavaScript here -->
+    <script>
+        // Functions
+        function displayMessage() {
+            document.getElementById('message').innerText = "Hello, this is a JavaScript function!";
+        }
+
+        // Strings I
+        function greet() {
+            const name = document.getElementById('nameInput').value;
+            document.getElementById('greeting').innerText = `Hello, ${name}! Welcome to JavaScript Strings.`;
+        }
+
+        // Numbers
+        function showNumbers() {
+            const num1 = 5;
+            const num2 = 10;
+            const sum = num1 + num2;
+            document.getElementById('numberResult').innerText = `5 + 10 = ${sum}`;
+        }
+
+        // Variables
+        function showVariables() {
+            var name = "Alice";
+            let age = 25;
+            const job = "Developer";
+            document.getElementById('variableResult').innerText = `Name: ${name}, Age: ${age}, Job: ${job}`;
+        }
+
+        // Conditions
+        function checkAge() {
+            let age = prompt("Enter your age:");
+            if (age >= 18) {
+                document.getElementById('ageCheck').innerText = "You are an adult.";
+            } else {
+                document.getElementById('ageCheck').innerText = "You are a minor.";
+            }
+        }
+
+        // Arrays I
+        function displayArray() {
+            const fruits = ["Apple", "Banana", "Cherry", "Date", "Elderberry"];
+            const list = document.getElementById('fruitList');
+            list.innerHTML = '';
+            fruits.forEach(fruit => {
+                const li = document.createElement('li');
+                li.innerText = fruit;
+                list.appendChild(li);
+            });
+        }
+
+        // Arrays II & Callbacks
+        function sortArray() {
+            const numbers = [4, 2, 9, 1, 5, 6];
+            numbers.sort((a, b) => a - b);
+            const list = document.getElementById('sortedList');
+            list.innerHTML = '';
+            numbers.forEach(number => {
+                const li = document.createElement('li');
+                li.innerText = number;
+                list.appendChild(li);
+            });
+        }
+
+        // Objects I
+        function showPerson() {
+            const person = {
+                firstName: "John",
+                lastName: "Doe",
+                age: 30,
+                job: "Developer"
+            };
+            document.getElementById('person').innerText = `Name: ${person.firstName} ${person.lastName}, Age: ${person.age}, Job: ${person.job}`;
+        }
+
+        // Arrow Functions
+        const showArrowFunction = () => {
+            document.getElementById('arrowFunction').innerText = "This is an arrow function!";
+        }
+
+        // Implicit Return
+        const showImplicitReturn = () => document.getElementById('implicitReturn').innerText = "This is an implicit return!";
+    </script>
+</body>
+</html>
+
+
+    <!-- Strings II -->
+    <div class="container" id="stringsII">
+        <h2>11. Strings II</h2>
+        <p>More advanced string operations like slicing, substring, and template literals.</p>
+        <button onclick="showSubstring()">Show Substring</button>
+        <p id="substringResult"></p>
+        <code>
+            <pre>
+                function showSubstring() {
+                    const text = "Hello, JavaScript!";
+                    const substring = text.substring(7, 17);
+                    document.getElementById('substringResult').innerText = `Substring: ${substring}`;
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Arrays III -->
+    <div class="container" id="arraysIII">
+        <h2>12. Arrays III</h2>
+        <p>Advanced array methods such as map, filter, and reduce.</p>
+        <button onclick="showMappedArray()">Show Mapped Array</button>
+        <ul id="mappedList"></ul>
+        <code>
+            <pre>
+                function showMappedArray() {
+                    const numbers = [1, 2, 3, 4, 5];
+                    const squares = numbers.map(n => n * n);
+                    const list = document.getElementById('mappedList');
+                    list.innerHTML = '';
+                    squares.forEach(square => {
+                        const li = document.createElement('li');
+                        li.innerText = square;
+                        list.appendChild(li);
+                    });
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Array reduce -->
+    <div class="container" id="arrayReduce">
+        <h2>13. Array Reduce</h2>
+        <p>Using the reduce method to accumulate array values.</p>
+        <button onclick="showReducedValue()">Show Reduced Value</button>
+        <p id="reducedValue"></p>
+        <code>
+            <pre>
+                function showReducedValue() {
+                    const numbers = [1, 2, 3, 4, 5];
+                    const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+                    document.getElementById('reducedValue').innerText = `Sum: ${sum}`;
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Array Destructuring & Concat -->
+    <div class="container" id="arrayDestructuringConcat">
+        <h2>14. Array Destructuring & Concat</h2>
+        <p>Destructuring arrays and using the concat method.</p>
+        <button onclick="showDestructuredArray()">Show Destructured Array</button>
+        <p id="destructuredArray"></p>
+        <code>
+            <pre>
+                function showDestructuredArray() {
+                    const fruits = ["Apple", "Banana", "Cherry"];
+                    const [first, second, third] = fruits;
+                    const moreFruits = fruits.concat(["Date", "Elderberry"]);
+                    document.getElementById('destructuredArray').innerText = `First: ${first}, Second: ${second}, Third: ${third}, More Fruits: ${moreFruits.join(', ')}`;
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Objects II -->
+    <div class="container" id="objectsII">
+        <h2>15. Objects II</h2>
+        <p>More advanced object operations such as nested objects and object methods.</p>
+        <button onclick="showNestedObject()">Show Nested Object</button>
+        <p id="nestedObject"></p>
+        <code>
+            <pre>
+                function showNestedObject() {
+                    const person = {
+                        name: "Alice",
+                        age: 30,
+                        job: "Developer",
+                        address: {
+                            street: "123 Main St",
+                            city: "Wonderland"
+                        }
+                    };
+                    document.getElementById('nestedObject').innerText = `Name: ${person.name}, Age: ${person.age}, Job: ${person.job}, Street: ${person.address.street}, City: ${person.address.city}`;
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Objects III -->
+    <div class="container" id="objectsIII">
+        <h2>16. Objects III</h2>
+        <p>Further object manipulations such as spread operator and object destructuring.</p>
+        <button onclick="showObjectDestructuring()">Show Object Destructuring</button>
+        <p id="objectDestructuring"></p>
+        <code>
+            <pre>
+                function showObjectDestructuring() {
+                    const person = {
+                        name: "Bob",
+                        age: 35,
+                        job: "Designer"
+                    };
+                    const { name, age, job } = person;
+                    document.getElementById('objectDestructuring').innerText = `Name: ${name}, Age: ${age}, Job: ${job}`;
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Optional Chaining -->
+    <div class="container" id="optionalChaining">
+        <h2>17. Optional Chaining</h2>
+        <p>Using optional chaining to safely access deeply nested properties.</p>
+        <button onclick="showOptionalChaining()">Show Optional Chaining</button>
+        <p id="optionalChainingResult"></p>
+        <code>
+            <pre>
+                function showOptionalChaining() {
+                    const user = {
+                        name: "Charlie",
+                        preferences: {
+                            theme: "dark"
+                        }
+                    };
+                    const theme = user.preferences?.theme ?? "light";
+                    document.getElementById('optionalChainingResult').innerText = `Theme: ${theme}`;
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Nullish Coalescing -->
+    <div class="container" id="nullishCoalescing">
+        <h2>18. Nullish Coalescing</h2>
+        <p>Using nullish coalescing to provide default values for null or undefined.</p>
+        <button onclick="showNullishCoalescing()">Show Nullish Coalescing</button>
+        <p id="nullishCoalescingResult"></p>
+        <code>
+            <pre>
+                function showNullishCoalescing() {
+                    const value = null;
+                    const result = value ?? "Default value";
+                    document.getElementById('nullishCoalescingResult').innerText = `Result: ${result}`;
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Advanced Control Flow -->
+    <div class="container" id="advancedControlFlow">
+        <h2>19. Advanced Control Flow</h2>
+        <p>Advanced control flow techniques such as switch cases and loops.</p>
+        <button onclick="showControlFlow()">Show Control Flow</button>
+        <p id="controlFlowResult"></p>
+        <code>
+            <pre>
+                function showControlFlow() {
+                    const day = "Monday";
+                    let message;
+                    switch(day) {
+                        case "Monday":
+                            message = "Start of the work week!";
+                            break;
+                        case "Friday":
+                            message = "Almost weekend!";
+                            break;
+                        default:
+                            message = "Midweek day.";
+                    }
+                    document.getElementById('controlFlowResult').innerText = `Message: ${message}`;
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Arrays of Objects I -->
+    <div class="container" id="arraysOfObjectsI">
+        <h2>20. Arrays of Objects I</h2>
+        <p>Storing and manipulating arrays of objects.</p>
+        <button onclick="showArrayOfObjects()">Show Array of Objects</button>
+        <ul id="arrayOfObjectsResult"></ul>
+        <code>
+            <pre>
+                function showArrayOfObjects() {
+                    const users = [
+                        { name: "Alice", age: 30 },
+                        { name: "Bob", age: 25 },
+                        { name: "Charlie", age: 35 }
+                    ];
+                    const list = document.getElementById('arrayOfObjectsResult');
+                    list.innerHTML = '';
+                    users.forEach(user => {
+                        const li = document.createElement('li');
+                        li.innerText = `Name: ${user.name}, Age: ${user.age}`;
+                        list.appendChild(li);
+                    });
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Arrays of Objects II -->
+    <div class="container" id="arraysOfObjectsII">
+        <h2>21. Arrays of Objects II</h2>
+        <p>More complex operations on arrays of objects, such as sorting and filtering.</p>
+        <button onclick="showSortedArrayOfObjects()">Show Sorted Array of Objects</button>
+        <ul id="sortedArrayOfObjectsResult"></ul>
+        <code>
+            <pre>
+                function showSortedArrayOfObjects() {
+                    const users = [
+                        { name: "Alice", age: 30 },
+                        { name: "Bob", age: 25 },
+                        { name: "Charlie", age: 35 }
+                    ];
+                    users.sort((a, b) => a.age - b.age);
+                    const list = document.getElementById('sortedArrayOfObjectsResult');
+                    list.innerHTML = '';
+                    users.forEach(user => {
+                        const li = document.createElement('li');
+                        li.innerText = `Name: ${user.name}, Age: ${user.age}`;
+                        list.appendChild(li);
+                    });
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Reducing Arrays of Objects -->
+    <div class="container" id="reducingArraysOfObjects">
+        <h2>22. Reducing Arrays of Objects</h2>
+        <p>Using reduce on arrays of objects to aggregate data.</p>
+        <button onclick="showReducedArrayOfObjects()">Show Reduced Array of Objects</button>
+        <p id="reducedArrayOfObjectsResult"></p>
+        <code>
+            <pre>
+                function showReducedArrayOfObjects() {
+                    const users = [
+                        { name: "Alice", age: 30 },
+                        { name: "Bob", age: 25 },
+                        { name: "Charlie", age: 35 }
+                    ];
+                    const totalAge = users.reduce((acc, user) => acc + user.age, 0);
+                    document.getElementById('reducedArrayOfObjectsResult').innerText = `Total Age: ${totalAge}`;
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Try Catch -->
+    <div class="container" id="tryCatch">
+        <h2>23. Try Catch</h2>
+        <p>Error handling using try-catch blocks.</p>
+        <button onclick="showTryCatch()">Show Try Catch</button>
+        <p id="tryCatchResult"></p>
+        <code>
+            <pre>
+                function showTryCatch() {
+                    try {
+                        const result = riskyOperation();
+                        document.getElementById('tryCatchResult').innerText = `Result: ${result}`;
+                    } catch (error) {
+                        document.getElementById('tryCatchResult').innerText = `Error: ${error.message}`;
+                    }
+                }
+
+                function riskyOperation() {
+                    throw new Error("Something went wrong!");
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Semi-colons -->
+    <div class="container" id="semicolons">
+        <h2>24. Semi-colons</h2>
+        <p>The importance of semi-colons in JavaScript and when they can be omitted.</p>
+        <button onclick="showSemicolons()">Show Semi-colons</button>
+        <p id="semicolonsResult"></p>
+        <code>
+            <pre>
+                function showSemicolons() {
+                    const message = "Hello, world!" // Semi-colon omitted
+                    document.getElementById('semicolonsResult').innerText = message
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Immutability -->
+    <div class="container" id="immutability">
+        <h2>25. Immutability</h2>
+        <p>Understanding immutability and why it matters in JavaScript.</p>
+        <button onclick="showImmutability()">Show Immutability</button>
+        <p id="immutabilityResult"></p>
+        <code>
+            <pre>
+                function showImmutability() {
+                    const arr = [1, 2, 3];
+                    const newArr = [...arr, 4];
+                    document.getElementById('immutabilityResult').innerText = `Original Array: ${arr.join(', ')}, New Array: ${newArr.join(', ')}`;
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Mutable to Immutable -->
+    <div class="container" id="mutableToImmutable">
+        <h2>26. Mutable to Immutable</h2>
+        <p>Converting mutable objects to immutable.</p>
+        <button onclick="showMutableToImmutable()">Show Mutable to Immutable</button>
+        <p id="mutableToImmutableResult"></p>
+        <code>
+            <pre>
+                function showMutableToImmutable() {
+                    const obj = { name: "Alice" };
+                    const newObj = { ...obj, age: 30 };
+                    document.getElementById('mutableToImmutableResult').innerText = `Original Object: ${JSON.stringify(obj)}, New Object: ${JSON.stringify(newObj)}`;
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Introduction to Classes -->
+    <div class="container" id="introductionToClasses">
+        <h2>27. Introduction to Classes</h2>
+        <p>Basic concepts of classes in JavaScript.</p>
+        <button onclick="showClassExample()">Show Class Example</button>
+        <p id="classExample"></p>
+        <code>
+            <pre>
+                class Person {
+                    constructor(name, age) {
+                        this.name = name;
+                        this.age = age;
+                    }
+                }
+
+                function showClassExample() {
+                    const person = new Person("Alice", 30);
+                    document.getElementById('classExample').innerText = `Name: ${person.name}, Age: ${person.age}`;
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Class Instance Methods -->
+    <div class="container" id="classInstanceMethods">
+        <h2>28. Class Instance Methods</h2>
+        <p>Adding methods to classes.</p>
+        <button onclick="showClassMethods()">Show Class Methods</button>
+        <p id="classMethods"></p>
+        <code>
+            <pre>
+                class Animal {
+                    constructor(name, species) {
+                        this.name = name;
+                        this.species = species;
+                    }
+
+                    describe() {
+                        return `${this.name} is a ${this.species}`;
+                    }
+                }
+
+                function showClassMethods() {
+                    const animal = new Animal("Simba", "Lion");
+                    document.getElementById('classMethods').innerText = animal.describe();
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Class Concepts -->
+    <div class="container" id="classConcepts">
+        <h2>29. Class Concepts</h2>
+        <p>Understanding concepts such as inheritance, encapsulation, and polymorphism in classes.</p>
+        <button onclick="showClassConcepts()">Show Class Concepts</button>
+        <p id="classConceptsResult"></p>
+        <code>
+            <pre>
+                class Vehicle {
+                    constructor(make, model) {
+                        this.make = make;
+                        this.model = model;
+                    }
+                }
+
+                class Car extends Vehicle {
+                    constructor(make, model, doors) {
+                        super(make, model);
+                        this.doors = doors;
+                    }
+
+                    describe() {
+                        return `${this.make} ${this.model} with ${this.doors} doors`;
+                    }
+                }
+
+                function showClassConcepts() {
+                    const car = new Car("Toyota", "Corolla", 4);
+                    document.getElementById('classConceptsResult').innerText = car.describe();
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Class Inheritance -->
+    <div class="container" id="classInheritance">
+        <h2>30. Class Inheritance</h2>
+        <p>Understanding inheritance in JavaScript classes.</p>
+        <button onclick="showClassInheritance()">Show Class Inheritance</button>
+        <p id="classInheritanceResult"></p>
+        <code>
+            <pre>
+                class Employee {
+                    constructor(name, position) {
+                        this.name = name;
+                        this.position = position;
+                    }
+                }
+
+                class Manager extends Employee {
+                    constructor(name, position, department) {
+                        super(name, position);
+                        this.department = department;
+                    }
+
+                    describe() {
+                        return `${this.name} is a ${this.position} in ${this.department} department`;
+                    }
+                }
+
+                function showClassInheritance() {
+                    const manager = new Manager("John", "Manager", "Sales");
+                    document.getElementById('classInheritanceResult').innerText = manager.describe();
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Prototypal Inheritance -->
+    <div class="container" id="prototypalInheritance">
+        <h2>31. Prototypal Inheritance</h2>
+        <p>Using prototypal inheritance in JavaScript.</p>
+        <button onclick="showPrototypalInheritance()">Show Prototypal Inheritance</button>
+        <p id="prototypalInheritanceResult"></p>
+        <code>
+            <pre>
+                function Animal(name) {
+                    this.name = name;
+                }
+
+                Animal.prototype.describe = function() {
+                    return `${this.name} is an animal`;
+                }
+
+                function showPrototypalInheritance() {
+                    const animal = new Animal("Leo");
+                    document.getElementById('prototypalInheritanceResult').innerText = animal.describe();
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Classes in Front-End Libraries -->
+    <div class="container" id="classesInFrontEndLibraries">
+        <h2>32. Classes in Front-End Libraries</h2>
+        <p>Using classes in popular front-end libraries like React.</p>
+        <button onclick="showClassInFrontEndLibraries()">Show Classes in Front-End Libraries</button>
+        <p id="classInFrontEndLibrariesResult"></p>
+        <code>
+            <pre>
+                class MyComponent extends React.Component {
+                    render() {
+                        return React.createElement('div', null, 'Hello from a React class component!');
+                    }
+                }
+
+                function showClassInFrontEndLibraries() {
+                    document.getElementById('classInFrontEndLibrariesResult').innerText = "Example of class usage in React";
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Public and Private Fields -->
+    <div class="container" id="publicAndPrivateFields">
+        <h2>33. Public and Private Fields</h2>
+        <p>Using public and private fields in JavaScript classes.</p>
+        <button onclick="showPublicPrivateFields()">Show Public and Private Fields</button>
+        <p id="publicPrivateFieldsResult"></p>
+        <code>
+            <pre>
+                class BankAccount {
+                    #balance = 0; // Private field
+
+                    constructor(owner) {
+                        this.owner = owner; // Public field
+                    }
+
+                    deposit(amount) {
+                        this.#balance += amount;
+                    }
+
+                    getBalance() {
+                        return this.#balance;
+                    }
+                }
+
+                function showPublicPrivateFields() {
+                    const account = new BankAccount("Alice");
+                    account.deposit(100);
+                    document.getElementById('publicPrivateFieldsResult').innerText = `Owner: ${account.owner}, Balance: ${account.getBalance()}`;
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Asynchronous Callbacks -->
+    <div class="container" id="asynchronousCallbacks">
+        <h2>34. Asynchronous Callbacks</h2>
+        <p>Using callbacks in asynchronous operations.</p>
+        <button onclick="showAsyncCallback()">Show Asynchronous Callbacks</button>
+        <p id="asyncCallbackResult"></p>
+        <code>
+            <pre>
+                function fetchData(callback) {
+                    setTimeout(() => {
+                        callback("Data fetched!");
+                    }, 2000);
+                }
+
+                function showAsyncCallback() {
+                    fetchData((message) => {
+                        document.getElementById('asyncCallbackResult').innerText = message;
+                    });
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Callback Pattern -->
+    <div class="container" id="callbackPattern">
+        <h2>35. Callback Pattern</h2>
+        <p>Understanding the callback pattern in JavaScript.</p>
+        <button onclick="showCallbackPattern()">Show Callback Pattern</button>
+        <p id="callbackPatternResult"></p>
+        <code>
+            <pre>
+                function operation(x, y, callback) {
+                    const result = x + y;
+                    callback(result);
+                }
+
+                function showCallbackPattern() {
+                    operation(5, 10, (result) => {
+                        document.getElementById('callbackPatternResult').innerText = `Result: ${result}`;
+                    });
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Intro to Promises -->
+    <div class="container" id="introToPromises">
+        <h2>36. Intro to Promises</h2>
+        <p>Introduction to promises in JavaScript for handling asynchronous operations.</p>
+        <button onclick="showPromise()">Show Promise</button>
+        <p id="promiseResult"></p>
+        <code>
+            <pre>
+                function showPromise() {
+                    const promise = new Promise((resolve, reject) => {
+                        setTimeout(() => {
+                            resolve("Promise resolved!");
+                        }, 2000);
+                    });
+
+                    promise.then((message) => {
+                        document.getElementById('promiseResult').innerText = message;
+                    });
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Using Promises -->
+    <div class="container" id="usingPromises">
+        <h2>37. Using Promises</h2>
+        <p>Using promises for handling asynchronous operations.</p>
+        <button onclick="showUsingPromises()">Show Using Promises</button>
+        <p id="usingPromisesResult"></p>
+        <code>
+            <pre>
+                function fetchData() {
+                    return new Promise((resolve, reject) => {
+                        setTimeout(() => {
+                            resolve("Data fetched!");
+                        }, 2000);
+                    });
+                }
+
+                function showUsingPromises() {
+                    fetchData().then((message) => {
+                        document.getElementById('usingPromisesResult').innerText = message;
+                    });
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Promise Rejection -->
+    <div class="container" id="promiseRejection">
+        <h2>38. Promise Rejection</h2>
+        <p>Handling promise rejections in JavaScript.</p>
+        <button onclick="showPromiseRejection()">Show Promise Rejection</button>
+        <p id="promiseRejectionResult"></p>
+        <code>
+            <pre>
+                function fetchData() {
+                    return new Promise((resolve, reject) => {
+                        setTimeout(() => {
+                            reject(new Error("Promise rejected!"));
+                        }, 2000);
+                    });
+                }
+
+                function showPromiseRejection() {
+                    fetchData().catch((error) => {
+                        document.getElementById('promiseRejectionResult').innerText = error.message;
+                    });
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Creating Promises -->
+    <div class="container" id="creatingPromises">
+        <h2>39. Creating Promises</h2>
+        <p>Creating and using promises in JavaScript.</p>
+        <button onclick="showCreatingPromises()">Show Creating Promises</button>
+        <p id="creatingPromisesResult"></p>
+        <code>
+            <pre>
+                function createPromise() {
+                    return new Promise((resolve, reject) => {
+                        setTimeout(() => {
+                            resolve("Promise created and resolved!");
+                        }, 2000);
+                    });
+                }
+
+                function showCreatingPromises() {
+                    createPromise().then((message) => {
+                        document.getElementById('creatingPromisesResult').innerText = message;
+                    });
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Rejecting Promises -->
+    <div class="container" id="rejectingPromises">
+        <h2>40. Rejecting Promises</h2>
+        <p>Creating and rejecting promises in JavaScript.</p>
+        <button onclick="showRejectingPromises()">Show Rejecting Promises</button>
+        <p id="rejectingPromisesResult"></p>
+        <code>
+            <pre>
+                function createRejectedPromise() {
+                    return new Promise((resolve, reject) => {
+                        setTimeout(() => {
+                            reject(new Error("Promise created and rejected!"));
+                        }, 2000);
+                    });
+                }
+
+                function showRejectingPromises() {
+                    createRejectedPromise().catch((error) => {
+                        document.getElementById('rejectingPromisesResult').innerText = error.message;
+                    });
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- JSON -->
+    <div class="container" id="json">
+        <h2>41. JSON</h2>
+        <p>Using JSON for data exchange in JavaScript.</p>
+        <button onclick="showJSON()">Show JSON</button>
+        <p id="jsonResult"></p>
+        <code>
+            <pre>
+                function showJSON() {
+                    const person = {
+                        name: "Alice",
+                        age: 30
+                    };
+                    const jsonString = JSON.stringify(person);
+                    const parsedObject = JSON.parse(jsonString);
+                    document.getElementById('jsonResult').innerText = `JSON String: ${jsonString}, Parsed Object: ${JSON.stringify(parsedObject)}`;
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Intro to Fetch -->
+    <div class="container" id="introToFetch">
+        <h2>42. Intro to Fetch</h2>
+        <p>Using the Fetch API for making HTTP requests in JavaScript.</p>
+        <button onclick="showFetch()">Show Fetch</button>
+        <p id="fetchResult"></p>
+        <code>
+            <pre>
+                function showFetch() {
+                    fetch('https://jsonplaceholder.typicode.com/posts/1')
+                        .then(response => response.json())
+                        .then(data => {
+                            document.getElementById('fetchResult').innerText = `Title: ${data.title}`;
+                        });
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Working with Fetch -->
+    <div class="container" id="workingWithFetch">
+        <h2>43. Working with Fetch</h2>
+        <p>Working with the Fetch API for various HTTP methods.</p>
+        <button onclick="showWorkingWithFetch()">Show Working with Fetch</button>
+        <p id="workingWithFetchResult"></p>
+        <code>
+            <pre>
+                function showWorkingWithFetch() {
+                    fetch('https://jsonplaceholder.typicode.com/posts', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            title: 'foo',
+                            body: 'bar',
+                            userId: 1
+                        })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            document.getElementById('workingWithFetchResult').innerText = `Created Post ID: ${data.id}`;
+                        });
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Async/Await -->
+    <div class="container" id="asyncAwait">
+        <h2>44. Async/Await</h2>
+        <p>Using async and await for handling asynchronous operations in JavaScript.</p>
+        <button onclick="showAsyncAwait()">Show Async/Await</button>
+        <p id="asyncAwaitResult"></p>
+        <code>
+            <pre>
+                async function showAsyncAwait() {
+                    const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
+                    const data = await response.json();
+                    document.getElementById('asyncAwaitResult').innerText = `Title: ${data.title}`;
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Combining Promises with Async/Await -->
+    <div class="container" id="combiningPromisesAsyncAwait">
+        <h2>45. Combining Promises with Async/Await</h2>
+        <p>Combining promises with async/await for better asynchronous code.</p>
+        <button onclick="showCombiningPromisesAsyncAwait()">Show Combining Promises with Async/Await</button>
+        <p id="combiningPromisesAsyncAwaitResult"></p>
+        <code>
+            <pre>
+                function fetchData() {
+                    return new Promise((resolve) => {
+                        setTimeout(() => {
+                            resolve("Data fetched!");
+                        }, 2000);
+                    });
+                }
+
+                async function showCombiningPromisesAsyncAwait() {
+                    const message = await fetchData();
+                    document.getElementById('combiningPromisesAsyncAwaitResult').innerText = message;
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Debugging Tips -->
+    <div class="container" id="debuggingTips">
+        <h2>46. Debugging Tips</h2>
+        <p>Tips and techniques for debugging JavaScript code effectively.</p>
+        <button onclick="showDebuggingTips()">Show Debugging Tips</button>
+        <p id="debuggingTipsResult"></p>
+        <code>
+            <pre>
+                function showDebuggingTips() {
+                    try {
+                        console.log("Debugging Tip: Use console.log() for debugging.");
+                        // Intentional error
+                        const result = undefinedVariable + 1;
+                    } catch (error) {
+                        console.error("Error:", error.message);
+                    }
+                    document.getElementById('debuggingTipsResult').innerText = "Check the console for debugging tips and error messages.";
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Best Practices -->
+    <div class="container" id="bestPractices">
+        <h2>47. Best Practices</h2>
+        <p>Best practices for writing clean, maintainable JavaScript code.</p>
+        <button onclick="showBestPractices()">Show Best Practices</button>
+        <p id="bestPracticesResult"></p>
+        <code>
+            <pre>
+                function showBestPractices() {
+                    const bestPractices = [
+                        "Use meaningful variable names",
+                        "Keep functions small and focused",
+                        "Avoid global variables",
+                        "Use === instead of == for comparisons",
+                        "Write comments to explain complex code"
+                    ];
+                    document.getElementById('bestPracticesResult').innerText = bestPractices.join('\n');
+                }
+            </pre>
+        </code>
+    </div>
+
+    <!-- Conclusion -->
+    <div class="container" id="conclusion">
+        <h2>48. Conclusion</h2>
+        <p>Wrapping up the introduction to JavaScript.</p>
+        <p>Congratulations on completing the JavaScript tutorial!</p>
+    </div>
+
+    <script src="index.js"></script>
+<div class="author-message">
+        
+        <h2>Message from the Author</h2>
+        <p>Hello there!</p>
+        <p>
+            I'm thrilled that you have taken the time to explore this comprehensive JavaScript tutorial. 
+            Whether you're a beginner or looking to brush up on your skills, I hope you find the examples 
+            and explanations clear and helpful.
+        </p>
+        <p>
+            JavaScript is a versatile and powerful language that opens up a world of possibilities in web 
+            development. I encourage you to experiment with the code examples, try new things, and not be 
+            afraid to make mistakes along the way. Learning to code is a journey, and every step, no matter 
+            how small, brings you closer to mastering the language.
+        </p>
+        <p>
+            Happy coding!
+        </p>
+        <p>
+            Best regards,<br>
+            [Anand Tathe]
+        </p>
+    </div>
+
+</body>
+</html>
